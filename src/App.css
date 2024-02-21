@@ -1,0 +1,4 @@
+.carousel-item img {
+  height: 80vh; /* 100% of the viewport height */
+  object-fit: cover; /* Scale the image as large as possible */
+}
