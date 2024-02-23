@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-// import ExampleCarouselImage from "components/ExampleCarouselImage";
+
 import logo from "../img/1.png";
 
 export const Slider = () => {
