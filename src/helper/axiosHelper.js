@@ -1,33 +1,33 @@
 import axios from "axios";
 
-const rootAPI = import.meta.env.VITE_SERVER_ROOT + "/api/v1";
-const userAPI = rootAPI + "/users";
+const rootAPI = process.env.REACT_APP_ROOT_URL + "/api/v2";
+const userAPI = rootAPI + "/front-users";
 const catAPI = rootAPI + "/categories";
 const productAPI = rootAPI + "/products";
 
-const apiProcessor = async ({ method, url, data, isPrivate, refreshToken }) => {
+const apiProcessor = async ({ method, url, data, isPrivate }) => {
   try {
-    const token = refreshToken ? getRefreshJWT() : getAccessJWT();
-    const headers = {
-      Authorization: isPrivate ? token : null,
-    };
+    // const token = refreshToken ? getRefreshJWT() : getAccessJWT();
+    // const headers = {
+    //   Authorization: isPrivate ? token : null,
+    // };
     const response = await axios({
       method,
       url,
       data,
-      headers,
+      //   headers,
     });
 
     return response.data;
   } catch (error) {
-    if (error.response?.data?.message.includes("jwt expired")) {
-      const { accessJWT } = await fetchNewAccessJWT();
+    // if (error.response?.data?.message.includes("jwt expired")) {
+    //   const { accessJWT } = await fetchNewAccessJWT();
 
-      if (accessJWT) {
-        sessionStorage.setItem("accessJWT", accessJWT);
-        return apiProcessor({ method, url, data, isPrivate, refreshToken });
-      }
-    }
+    //   if (accessJWT) {
+    //     sessionStorage.setItem("accessJWT", accessJWT);
+    //     return apiProcessor({ method, url, data, isPrivate, refreshToken });
+    //   }
+    // }
     return {
       status: "error",
       message: error.message,
@@ -35,10 +35,10 @@ const apiProcessor = async ({ method, url, data, isPrivate, refreshToken }) => {
   }
 };
 
-export const fetchProducts = (_id) => {
+export const fetchProducts = () => {
   return apiProcessor({
     method: "get",
-    url: _id ? productAPI + "/" + _id : productAPI,
-    isPrivate: true,
+    url: productAPI,
+    // isPrivate: true,
   });
 };

@@ -3,6 +3,7 @@ import ProductCarousel from "./components/Cards";
 import { Footer } from "./components/Footer";
 import Header from "./components/Header";
 import { Slider } from "./components/Slider";
+import { fetchProducts } from "./helper/axiosHelper";
 
 function App() {
   return (
