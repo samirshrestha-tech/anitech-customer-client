@@ -1,19 +1,18 @@
 import "./App.css";
-import ProductCarousel from "./components/Cards";
-import { Footer } from "./components/Footer";
-import Header from "./components/Header";
-import { Slider } from "./components/Slider";
-import { fetchProducts } from "./helper/axiosHelper";
+
+import HomePage from "./pages/HomePage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Header />
+      {/* private routes */}
 
-      <Slider />
-      <ProductCarousel />
+      {/* public routes */}
 
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }
