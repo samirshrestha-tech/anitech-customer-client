@@ -11,10 +11,22 @@ function App() {
       <Routes>
         {/* private routes */}
 
+        {/* sign in page  */}
+        {/* dashboard */}
+        {/* order */}
+        {/* carts */}
+        {/* check out */}
+        {/* payment */}
+
         {/* public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/categories" element={<Categories />} />
+
+        {/* new pages routes needs to be added */}
+        {/* sign in */}
+        {/* verify email */}
+        {/* reset password */}
       </Routes>
     </div>
   );

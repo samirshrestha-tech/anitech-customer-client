@@ -12,6 +12,7 @@ import logo from "../img/1.png"; // import your logo image
 import { fetchProducts } from "../helper/axiosHelper";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [products, setProducts] = useState([]);
@@ -42,14 +43,20 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Link to="/">
           <img src={logo} alt="Logo" height="60" />
-        </Navbar.Brand>
+        </Link>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Products</Nav.Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/products" className="nav-link">
+              Products
+            </Link>
+
             {/* Add more nav links as needed */}
           </Nav>
           <Form className="d-flex">
