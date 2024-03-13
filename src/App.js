@@ -2,8 +2,10 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage";
 import { Route, Routes } from "react-router-dom";
-import Products from "./pages/Products";
+import Products from "../src/pages/product/Products";
 import Categories from "./pages/Categories";
+
+import { Provider } from "react-redux";
 
 function App() {
   return (
