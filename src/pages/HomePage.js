@@ -21,7 +21,7 @@ const HomePage = () => {
     <div>
       <Header products={products} />
 
-      <Slider />
+      <Slider products={products} />
       <ProductCarousel />
 
       <Footer />
