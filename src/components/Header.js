@@ -14,32 +14,7 @@ import { fetchProducts } from "../helper/axiosHelper";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
-  const [products, setProducts] = useState([]);
-
-  console.log(products);
-  // State to track loading state
-  const [loading, setLoading] = useState(true);
-  // State to track errors
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch products data
-        const productsData = await fetchProducts();
-        setProducts(productsData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        setError("Error fetching products. Please try again later.");
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+function Header({ products }) {
   return (
     <Navbar bg="light" expand="lg">
       <Container>

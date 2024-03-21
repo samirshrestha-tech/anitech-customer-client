@@ -9,16 +9,17 @@ import { useEffect } from "react";
 
 const HomePage = () => {
   const dispatch = useDispatch(); // useDispatch hook to get dispatch function
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.productInfo.productList);
+  console.log(products);
 
-  console.log(products); // useSelector hook to get products from Redux store
+  // useSelector hook to get products from Redux store
 
   useEffect(() => {
     dispatch(fetchProductsAction()); // Dispatch fetchProducts action when the component mounts
   }, [dispatch]); // Include dispatch in the dependency array
   return (
     <div>
-      <Header />
+      <Header products={products} />
 
       <Slider />
       <ProductCarousel />

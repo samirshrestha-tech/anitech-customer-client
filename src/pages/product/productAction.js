@@ -6,9 +6,7 @@ import { setProductList, setSelectedProduct } from "./productSlice";
 export const fetchProductsAction = () => async (dispatch) => {
   const response = await fetchProducts();
 
-  const { status, products } = response;
-
-  console.log(status);
+  const { status, products } = response.data;
 
   if (status === "success") {
     dispatch(setProductList(products));
